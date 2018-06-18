@@ -1,0 +1,19 @@
+sudo: true
+os: trusty
+cache: false
+
+notifications: # set notification options
+ email:
+  recipients:
+    -Atul.Tiwarir@cognizant.com
+    
+  on_success: always
+  on_failure: always
+ slack:
+  on_success: always
+  on_failure: always
+
+script:
+- echo "Running Default Script against CI environment"
+
+- ant -buildfile build.xml deployCode
