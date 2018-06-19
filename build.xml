@@ -33,12 +33,13 @@
     </target>
 
     
-    <target name="deployCode" depends="proxy">
+   <target name="deployCode" depends="proxy">
       <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
       <sf:deploy username="${sf.username1}" password="${sf.password1}"  serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" testLevel="RunSpecifiedTests" rollbackOnError="true">
-      	 
+      	 <runTest>SampleDeployClass</runTest> 
       </sf:deploy>
     </target>
+    
 	
 	 <!-- Shows deploying code with no TestLevel sepcified -->
    
