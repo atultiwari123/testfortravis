@@ -18,22 +18,9 @@
     </taskdef>
 	
     <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
-<target name="proxy">
-
-        <property name="proxy.host" value="proxy.cognizant.com" />
-
-        <property name="proxy.port" value="6050" />
-
-        <property name="proxy.user" value="sf.pusername" />
-
-        <property name="proxy.pwd" value="{sf.ppassword" />
-
-        <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
-
-    </target>
 
     
-   <target name="deployCode" depends="proxy">
+   <target name="deployCode">
       <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
       <sf:deploy username="${sf.username1}" password="${sf.password1}"  serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" testLevel="RunSpecifiedTests" rollbackOnError="true">
       	 <runTest>SampleDeployClass</runTest> 
